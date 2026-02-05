@@ -1,0 +1,270 @@
+/* Yonex-inspired Navbar Styles */
+
+.navbar {
+    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+    padding: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid #E60012; /* Yonex red accent */
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+/* Logo Styling */
+.navbar-logo {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-logo::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #E60012, #ff4757);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.navbar-logo:hover {
+    color: #E60012;
+    text-shadow: 0 0 20px rgba(230, 0, 18, 0.5);
+}
+
+.navbar-logo:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Navigation Links Container */
+.navbar-links {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Navigation Link Styling */
+.navbar-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.8rem 1.2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.navbar-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #E60012;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(230, 0, 18, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-link:hover {
+    color: #fff;
+}
+
+.navbar-link:hover::before {
+    width: 80%;
+}
+
+.navbar-link:hover::after {
+    opacity: 1;
+}
+
+/* Admin Link - Special styling */
+.navbar-link.admin-link {
+    color: #ffd700;
+}
+
+.navbar-link.admin-link::before {
+    background: linear-gradient(90deg, #ffd700, #ffaa00);
+}
+
+.navbar-link.admin-link:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Username Display */
+.navbar-username {
+    color: #E60012;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    background: rgba(230, 0, 18, 0.1);
+    border: 1px solid rgba(230, 0, 18, 0.3);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-username:hover {
+    background: rgba(230, 0, 18, 0.2);
+    border-color: rgba(230, 0, 18, 0.5);
+    box-shadow: 0 0 15px rgba(230, 0, 18, 0.2);
+}
+
+/* Logout Button */
+.navbar-logout-btn {
+    background: linear-gradient(135deg, #E60012 0%, #b8000e 100%);
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(230, 0, 18, 0.3);
+}
+
+.navbar-logout-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.navbar-logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(230, 0, 18, 0.5);
+}
+
+.navbar-logout-btn:hover::before {
+    left: 100%;
+}
+
+.navbar-logout-btn:active {
+    transform: translateY(0);
+}
+
+/* Auth Buttons (Login/Register) */
+.navbar-auth-btn {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.7rem 1.2rem;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-auth-btn.login {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-auth-btn.login:hover {
+    border-color: #E60012;
+    color: #fff;
+    background: rgba(230, 0, 18, 0.1);
+}
+
+.navbar-auth-btn.register {
+    background: linear-gradient(135deg, #E60012 0%, #b8000e 100%);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(230, 0, 18, 0.3);
+}
+
+.navbar-auth-btn.register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(230, 0, 18, 0.5);
+}
+
+/* Divider */
+.navbar-divider {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    margin: 0 0.5rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0 1rem;
+        height: 60px;
+    }
+
+    .navbar-logo {
+        font-size: 1.2rem;
+    }
+
+    .navbar-links {
+        gap: 0.2rem;
+    }
+
+    .navbar-link {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .navbar-auth-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .navbar-logout-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .navbar-username {
+        display: none;
+    }
+}
