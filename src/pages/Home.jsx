@@ -1,3 +1,4 @@
+//memory for your React component.
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllEquipment } from "../services/equipmentService";
@@ -6,6 +7,7 @@ import EquipmentCard from "../components/EquipmentCard";
 import PostCard from "../components/PostCard";
 
 // Home page component
+//const is a variable that cannot change.
 const Home = () => {
     // Save top equipment list
     const [featuredEquipment, setFeaturedEquipment] = useState([]);
@@ -18,6 +20,7 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
 
     // Run when page first load
+    //When home page load, I use useEffect to call the backend and get all the equipment. Then I sort by rating, highest first, and take top 3 only using slice
     useEffect(() => {
         // Function to get data from backend
         const fetchData = async () => {
@@ -40,6 +43,8 @@ const Home = () => {
 
         fetchData();
     }, []);
+    //is the dependency array
+    //run only one time
 
     // If still loading → show loading text
     if (loading) {

@@ -1,5 +1,6 @@
 import axios from "axios";
-
+//Axios is a tool we install to get data from backend.
+//This is saving your backend address into a variable.
 const API_URL = "http://localhost:3000/api";
 
 const api = axios.create({

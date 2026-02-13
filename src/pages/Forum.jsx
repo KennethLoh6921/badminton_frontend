@@ -44,7 +44,7 @@ const Forum = () => {
      * Fetches posts filtered by search term
      */
     const handleSearch = (e) => {
-        e.preventDefault();
+        e.preventDefault(); //is to stop default browser action
         fetchPosts(searchTerm);
     };
 
@@ -66,28 +66,14 @@ const Forum = () => {
 
                 {/* Search */}
                 <form onSubmit={handleSearch} className="filter-bar">
-                    <input
-                        type="text"
-                        placeholder="Search posts..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="form-input"
-                    />
+                    <input type="text" placeholder="Search posts..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="form-input" />
                     <button type="submit" className="btn btn-primary">
                         Search
                     </button>
                 </form>
 
                 {/* Posts List */}
-                <div>
-                    {posts.length === 0 ? (
-                        <div className="no-reviews">
-                            No posts found. {user && "Be the first to create one!"}
-                        </div>
-                    ) : (
-                        posts.map((post) => <PostCard key={post._id} post={post} />)
-                    )}
-                </div>
+                <div>{posts.length === 0 ? <div className="no-reviews">No posts found. {user && "Be the first to create one!"}</div> : posts.map((post) => <PostCard key={post._id} post={post} />)}</div>
             </div>
         </div>
     );

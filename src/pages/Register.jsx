@@ -8,7 +8,6 @@ import { AuthContext } from "../context/AuthContext";
 const Register = () => {
     // State to store form input data (user_id, name, email, password, confirmPassword)
     const [formData, setFormData] = useState({
-        user_id: "",
         name: "",
         email: "",
         password: "",
@@ -82,19 +81,6 @@ const Register = () => {
                 {error && <div className="form-error">{error}</div>}
 
                 <form onSubmit={handleSubmit} className="form">
-                    <div className="form-group">
-                        <label className="form-label">User ID</label>
-                        <input
-                            type="text"
-                            name="user_id"
-                            value={formData.user_id}
-                            onChange={handleChange}
-                            required
-                            className="form-input"
-                            placeholder="Choose a unique user ID"
-                        />
-                    </div>
-
                     <div className="form-group">
                         <label className="form-label">Name</label>
                         <input
